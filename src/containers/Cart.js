@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { SectionTitle } from "../components/Section/index";
+import { SectionTitle } from "../components/Section";
 
 import CartWrapper from "../components/Cart/Wrapper";
 import CartEmpty from "../components/Cart/Empty";

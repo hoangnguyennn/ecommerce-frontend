@@ -30,13 +30,24 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  const loginByToken = () => {
+    return axios
+      .post("/api/auth/me")
+      .then(true, false)
+      .catch((e) => {
+        console.log(e.response);
+        setUser({});
+        return false;
+      });
+  };
+
   const logout = () => {
     setUser({});
     setCart([]);
     return axios.post("/api/auth/logout").then(true, false);
   };
 
-  const context = { user, login, logout, isOpen, setOpen };
+  const context = { user, login, loginByToken, logout, isOpen, setOpen };
   return (
     <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
   );
